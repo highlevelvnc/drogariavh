@@ -18,12 +18,12 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Drogaria VH - Materiais de Construcao em Sintra",
+  title: "Drogaria VH - Materiais de Construção em Sintra",
   description:
-    "Drogaria VH em Sintra. Ferramentas, tintas, materiais eletricos e tudo para a sua obra. Peca via WhatsApp.",
+    "Drogaria VH em Sintra. Ferramentas, tintas, materiais elétricos e tudo para a sua obra. Peça via WhatsApp.",
   keywords: [
     "drogaria",
-    "materiais construcao",
+    "materiais construção",
     "ferramentas",
     "tintas",
     "sintra",

@@ -9,14 +9,14 @@ export function Footer() {
             Drogaria VH
           </div>
           <p className="text-on-surface/50 text-sm leading-relaxed">
-            Construimos o futuro com a precisao do presente. Solucoes integradas
-            de construcao e retalho em Sintra.
+            Construímos o futuro com a precisão do presente. Soluções integradas
+            de construção e retalho em Sintra.
           </p>
         </div>
 
         <div>
           <h4 className="text-secondary font-semibold text-xs uppercase tracking-[0.2em] mb-6">
-            Navegacao
+            Navegação
           </h4>
           <ul className="space-y-4 text-sm">
             <li>
@@ -40,7 +40,7 @@ export function Footer() {
                 href="#"
                 className="text-on-surface/50 hover:text-secondary transition-all"
               >
-                VH Remodelacoes
+                VH Remodelações
               </a>
             </li>
           </ul>
@@ -67,7 +67,7 @@ export function Footer() {
 
         <div>
           <h4 className="text-secondary font-semibold text-xs uppercase tracking-[0.2em] mb-6">
-            Orcamentos
+            Orçamentos
           </h4>
           <a
             href="https://wa.me/351926010809"
@@ -82,7 +82,7 @@ export function Footer() {
 
       <div className="mt-16 pt-8 border-t border-white/5 px-8 md:px-12 w-full max-w-screen-2xl mx-auto flex flex-col md:flex-row justify-between gap-4">
         <p className="text-on-surface/50 text-xs">
-          &copy; 2025 Vinculos Harmoniosos - Construcao &amp; Drogaria. Todos os
+          &copy; 2025 Vínculos Harmoniosos - Construção &amp; Drogaria. Todos os
           direitos reservados.
         </p>
       </div>

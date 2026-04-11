@@ -45,7 +45,7 @@ export function Navbar() {
             href="#"
             className="text-on-surface/50 hover:text-on-surface transition-colors text-sm"
           >
-            VH Remodelacoes &rarr;
+            VH Remodelações &rarr;
           </a>
         </div>
 

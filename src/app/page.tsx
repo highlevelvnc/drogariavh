@@ -13,24 +13,24 @@ const steps = [
   {
     num: "02",
     icon: "chat",
-    title: "Peca via WhatsApp",
-    desc: "Envie-nos a sua lista de materiais e receba um orcamento imediato e personalizado.",
+    title: "Peça via WhatsApp",
+    desc: "Envie-nos a sua lista de materiais e receba um orçamento imediato e personalizado.",
   },
   {
     num: "03",
     icon: "local_shipping",
     title: "Entregamos em Sua Casa",
-    desc: "Servico de entrega rapido e seguro em toda a regiao de Sintra e arredores.",
+    desc: "Serviço de entrega rápido e seguro em toda a região de Sintra e arredores.",
   },
 ];
 
 const categories = [
-  { title: "Ferramentas", desc: "Eletricas e Manuais de alta performance.", image: "/servicos/servico-03.jpg", span: "md:col-span-3 md:row-span-2" },
+  { title: "Ferramentas", desc: "Elétricas e Manuais de alta performance.", image: "/servicos/servico-03.jpg", span: "md:col-span-3 md:row-span-2" },
   { title: "Tintas e Lixas", desc: "Acabamentos perfeitos para interiores e exteriores.", image: "/servicos/servico-08.jpg", span: "md:col-span-3 md:row-span-1" },
-  { title: "Material Eletrico", desc: "", image: "/servicos/servico-12.jpg", span: "md:col-span-1 md:row-span-1" },
-  { title: "Canalizacao", desc: "", image: "/servicos/servico-15.jpg", span: "md:col-span-2 md:row-span-2" },
+  { title: "Material Elétrico", desc: "", image: "/servicos/servico-12.jpg", span: "md:col-span-1 md:row-span-1" },
+  { title: "Canalização", desc: "", image: "/servicos/servico-15.jpg", span: "md:col-span-2 md:row-span-2" },
   { title: "Cimento e Agregados", desc: "", image: "/servicos/servico-18.jpg", span: "md:col-span-2 md:row-span-1" },
-  { title: "Equipamento de Protecao", desc: "", image: "/servicos/servico-20.jpg", span: "md:col-span-2 md:row-span-1" },
+  { title: "Equipamento de Proteção", desc: "", image: "/servicos/servico-20.jpg", span: "md:col-span-2 md:row-span-1" },
 ];
 
 export default function DrogariaHome() {
@@ -58,10 +58,10 @@ export default function DrogariaHome() {
               Drogaria VH
             </span>
             <h1 className="font-[var(--font-manrope)] font-extrabold text-5xl md:text-8xl text-on-surface leading-[0.9] tracking-tighter mb-6">
-              Drogaria VH - Tudo para a sua Construcao
+              Drogaria VH - Tudo para a sua Construção
             </h1>
             <p className="text-on-surface-variant text-xl md:text-2xl max-w-2xl font-light leading-relaxed mb-10">
-              A sua loja de confianca em Sintra. Materiais eletricos,
+              A sua loja de confiança em Sintra. Materiais elétricos,
               ferramentas, tintas e muito mais para profissionais e particulares.
             </p>
             <a
@@ -126,7 +126,7 @@ export default function DrogariaHome() {
                 Categorias de Produtos
               </h2>
               <p className="text-on-surface-variant max-w-xl">
-                A precisao de um projeto comeca com a escolha certa dos
+                A precisão de um projeto começa com a escolha certa dos
                 materiais. Qualidade industrial ao seu alcance.
               </p>
             </div>
@@ -136,7 +136,7 @@ export default function DrogariaHome() {
               rel="noopener noreferrer"
               className="text-secondary font-[var(--font-manrope)] font-bold tracking-widest uppercase border-b border-secondary/30 hover:border-secondary transition-all pb-1"
             >
-              Ver Catalogo Completo
+              Ver Catálogo Completo
             </a>
           </div>
 
@@ -178,7 +178,7 @@ export default function DrogariaHome() {
             viewport={{ once: true }}
           >
             <h2 className="font-[var(--font-manrope)] font-extrabold text-5xl text-on-surface mb-8">
-              Estamos no coracao de Sintra.
+              Estamos no coração de Sintra.
             </h2>
             <div className="space-y-8">
               <div className="flex gap-6 items-start">
@@ -189,10 +189,10 @@ export default function DrogariaHome() {
                 </div>
                 <div>
                   <p className="font-[var(--font-manrope)] font-bold text-lg text-primary">
-                    Localizacao
+                    Localização
                   </p>
                   <p className="text-on-surface-variant font-light">
-                    Av. Dr. Alvaro de Vasconcelos 8, 2710-420 Sintra
+                    Av. Dr. Álvaro de Vasconcelos 8, 2710-420 Sintra
                   </p>
                 </div>
               </div>
@@ -204,10 +204,10 @@ export default function DrogariaHome() {
                 </div>
                 <div>
                   <p className="font-[var(--font-manrope)] font-bold text-lg text-primary">
-                    Horario
+                    Horário
                   </p>
                   <p className="text-on-surface-variant font-light">
-                    Segunda - Sabado: 08:30 - 19:00
+                    Segunda - Sábado: 08:30 - 19:00
                   </p>
                 </div>
               </div>
@@ -239,7 +239,7 @@ export default function DrogariaHome() {
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="Localizacao Drogaria VH em Sintra"
+              title="Localização Drogaria VH em Sintra"
             />
           </div>
         </div>

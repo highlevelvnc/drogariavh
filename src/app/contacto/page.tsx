@@ -32,7 +32,7 @@ export default function ContactoPage() {
               </div>
               <p className="text-on-surface-variant text-lg mb-12 max-w-md">
                 O seu parceiro em ferragens, tintas e ferramentas profissionais
-                com o aconselhamento tecnico que precisa.
+                com o aconselhamento técnico que precisa.
               </p>
               <div className="space-y-6">
                 <div className="flex items-center gap-4">
@@ -52,10 +52,10 @@ export default function ContactoPage() {
                   </span>
                   <div>
                     <p className="text-xs font-bold uppercase tracking-widest text-on-surface-variant mb-1">
-                      Localizacao
+                      Localização
                     </p>
                     <p className="text-xl font-medium">
-                      Av. Dr. Alvaro de Vasconcelos 8, Sintra
+                      Av. Dr. Álvaro de Vasconcelos 8, Sintra
                     </p>
                   </div>
                 </div>
@@ -65,7 +65,7 @@ export default function ContactoPage() {
                   </span>
                   <div>
                     <p className="text-xs font-bold uppercase tracking-widest text-on-surface-variant mb-1">
-                      Horario
+                      Horário
                     </p>
                     <p className="text-xl font-medium">
                       Seg-Sab: 08:30 - 19:00
@@ -95,11 +95,11 @@ export default function ContactoPage() {
                   construction
                 </span>
                 <h2 className="font-[var(--font-manrope)] font-bold text-3xl tracking-tight">
-                  VH Remodelacoes
+                  VH Remodelações
                 </h2>
               </div>
               <p className="text-on-surface-variant text-lg mb-12 max-w-md">
-                Precisa de obras ou remodelacoes? Fale com a nossa equipa
+                Precisa de obras ou remodelações? Fale com a nossa equipa
                 especializada.
               </p>
               <div className="space-y-6">
@@ -136,7 +136,7 @@ export default function ContactoPage() {
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 text-secondary font-bold group-hover:gap-4 transition-all"
               >
-                Pedir orcamento de obra{" "}
+                Pedir orçamento de obra{" "}
                 <span className="material-symbols-outlined">arrow_forward</span>
               </a>
             </div>
@@ -165,7 +165,7 @@ export default function ContactoPage() {
               </label>
               <input
                 className="w-full bg-surface-container-low border-none text-on-surface p-4 rounded focus:ring-2 focus:ring-primary focus:outline-none"
-                placeholder="Seu numero"
+                placeholder="Seu número"
                 type="tel"
               />
             </div>
