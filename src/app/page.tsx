@@ -178,7 +178,7 @@ export default function DrogariaHome() {
 
             <motion.h1
               variants={fadeUp}
-              className="font-[var(--font-manrope)] font-extrabold text-5xl md:text-7xl lg:text-8xl text-on-surface leading-[0.92] tracking-tighter mb-6"
+              className="font-[var(--font-manrope)] font-extrabold text-5xl md:text-7xl lg:text-8xl text-on-surface leading-[1.0] tracking-tighter mb-6"
             >
               Tudo para a sua{" "}
               <span className="text-gradient">Construção</span>
@@ -186,7 +186,7 @@ export default function DrogariaHome() {
 
             <motion.p
               variants={fadeUp}
-              className="text-on-surface-variant text-lg md:text-2xl max-w-2xl font-light leading-relaxed mb-10"
+              className="text-on-surface-variant text-lg md:text-2xl max-w-2xl font-normal leading-relaxed mb-10"
             >
               Ferramentas, tintas, materiais elétricos e de canalização.
               A drogaria de confiança dos profissionais em Sintra.
@@ -265,7 +265,7 @@ export default function DrogariaHome() {
                 transition={{ delay: i * 0.2, duration: 0.5 }}
                 className="group relative z-10"
               >
-                <div className="text-secondary font-[var(--font-manrope)] font-black text-8xl opacity-10 mb-[-2.5rem] group-hover:opacity-25 transition-opacity duration-500 text-center">
+                <div className="text-secondary font-[var(--font-manrope)] font-black text-8xl opacity-[0.06] mb-[-2.5rem] group-hover:opacity-25 transition-opacity duration-500 text-center">
                   {step.num}
                 </div>
                 <div className="relative z-10 p-8 md:p-10 bg-surface-container-high rounded-xl glow-card ghost-border text-center">
@@ -277,7 +277,7 @@ export default function DrogariaHome() {
                   <h3 className="font-[var(--font-manrope)] font-bold text-xl text-on-surface mb-4">
                     {step.title}
                   </h3>
-                  <p className="text-on-surface-variant font-light leading-relaxed text-sm">
+                  <p className="text-on-surface-variant font-normal leading-relaxed text-sm">
                     {step.desc}
                   </p>
                 </div>
@@ -350,7 +350,7 @@ export default function DrogariaHome() {
                   loading="lazy"
                 />
                 {/* Default gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-surface/95 via-surface/40 to-transparent transition-opacity duration-500 group-hover:opacity-0" />
+                <div className="absolute inset-0 bg-gradient-to-t from-surface/80 via-surface/30 to-transparent transition-opacity duration-500 group-hover:opacity-0" />
 
                 {/* Hover overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-secondary-container/95 via-surface/80 to-surface/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -366,7 +366,7 @@ export default function DrogariaHome() {
                 </div>
 
                 {/* Hover content */}
-                <div className="absolute inset-0 p-6 md:p-8 flex flex-col justify-end opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-500">
+                <div className="absolute inset-0 p-6 md:p-8 flex flex-col justify-end opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-400">
                   <h4 className={`font-[var(--font-manrope)] font-extrabold text-white ${cat.large ? "text-2xl md:text-3xl" : "text-lg md:text-xl"} mb-2`}>
                     {cat.title}
                   </h4>
@@ -471,7 +471,7 @@ export default function DrogariaHome() {
                 transition={{ delay: i * 0.1, duration: 0.5 }}
                 className="glow-card ghost-border rounded-xl bg-surface-container p-8 text-center group"
               >
-                <div className="w-16 h-16 rounded-full bg-secondary-container/20 flex items-center justify-center mx-auto mb-6 group-hover:bg-secondary-container/40 transition-colors duration-500">
+                <div className="w-16 h-16 rounded-full bg-secondary-container/15 flex items-center justify-center mx-auto mb-6 group-hover:bg-secondary-container/40 transition-colors duration-500">
                   <span className="material-symbols-outlined text-secondary text-3xl">
                     {point.icon}
                   </span>
@@ -500,7 +500,7 @@ export default function DrogariaHome() {
               <span className="text-secondary text-[11px] font-bold tracking-[0.3em] uppercase">
                 Visite-nos
               </span>
-              <h2 className="font-[var(--font-manrope)] font-extrabold text-4xl md:text-5xl text-on-surface mt-4 mb-10 leading-tight">
+              <h2 className="font-[var(--font-manrope)] font-extrabold text-4xl md:text-5xl text-on-surface mt-4 mb-10 leading-tight tracking-tighter">
                 Estamos no coração de Sintra.
               </h2>
               <div className="space-y-8">

@@ -1,4 +1,25 @@
+"use client";
+
 import Link from "next/link";
+import { motion } from "framer-motion";
+
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.12,
+    },
+  },
+};
+
+const columnVariants = {
+  hidden: { opacity: 0, y: 24 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] as const },
+  },
+};
 
 export function Footer() {
   return (
@@ -13,9 +34,15 @@ export function Footer() {
       />
 
       <div className="pt-20 pb-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 px-8 md:px-12 w-full max-w-screen-2xl mx-auto mb-20">
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-4 gap-12 px-8 md:px-12 w-full max-w-screen-2xl mx-auto mb-20"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+        >
           {/* Brand column */}
-          <div className="md:col-span-1">
+          <motion.div className="md:col-span-1" variants={columnVariants}>
             <div className="text-xl font-bold text-primary uppercase tracking-widest mb-6 font-[var(--font-manrope)]">
               Drogaria VH
             </div>
@@ -50,11 +77,11 @@ export function Footer() {
                 </svg>
               </a>
             </div>
-          </div>
+          </motion.div>
 
           {/* Navigation column */}
-          <div>
-            <h4 className="text-secondary font-semibold text-xs uppercase tracking-[0.2em] mb-6">
+          <motion.div variants={columnVariants}>
+            <h4 className="text-secondary font-semibold text-[11px] uppercase tracking-[0.15em] mb-6">
               Navegação
             </h4>
             <ul className="space-y-4 text-sm">
@@ -83,11 +110,11 @@ export function Footer() {
                 </a>
               </li>
             </ul>
-          </div>
+          </motion.div>
 
           {/* Support column */}
-          <div>
-            <h4 className="text-secondary font-semibold text-xs uppercase tracking-[0.2em] mb-6">
+          <motion.div variants={columnVariants}>
+            <h4 className="text-secondary font-semibold text-[11px] uppercase tracking-[0.15em] mb-6">
               Suporte
             </h4>
             <ul className="space-y-4 text-sm">
@@ -103,11 +130,11 @@ export function Footer() {
                 <span className="text-on-surface/50">Sintra, Portugal</span>
               </li>
             </ul>
-          </div>
+          </motion.div>
 
           {/* CTA column */}
-          <div>
-            <h4 className="text-secondary font-semibold text-xs uppercase tracking-[0.2em] mb-6">
+          <motion.div variants={columnVariants}>
+            <h4 className="text-secondary font-semibold text-[11px] uppercase tracking-[0.15em] mb-6">
               Orçamentos
             </h4>
             <a
@@ -124,8 +151,8 @@ export function Footer() {
             <p className="text-on-surface/30 text-xs text-center mt-3">
               Resposta rápida garantida
             </p>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
         {/* Bottom bar */}
         <div

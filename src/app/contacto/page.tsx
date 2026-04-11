@@ -48,7 +48,7 @@ export default function ContactoPage() {
           <span className="text-secondary text-[11px] font-bold tracking-[0.3em] uppercase">
             Fale Connosco
           </span>
-          <h1 className="font-[var(--font-manrope)] font-black text-5xl md:text-7xl text-on-surface max-w-4xl leading-tight tracking-tighter mt-4">
+          <h1 className="font-[var(--font-manrope)] font-black text-5xl md:text-7xl text-on-surface max-w-4xl leading-[1.15] tracking-tighter mt-4">
             Entre em Contacto
           </h1>
           <div className="h-1 w-24 bg-secondary mt-8" />
@@ -62,11 +62,14 @@ export default function ContactoPage() {
           className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-16"
         >
           {trustBadges.map((badge, i) => (
-            <div
+            <motion.div
               key={badge.title}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.1 }}
               className="glow-card ghost-border rounded-xl bg-surface-container p-6 flex items-start gap-4 group"
             >
-              <div className="w-12 h-12 rounded-lg bg-secondary-container/20 flex items-center justify-center shrink-0 group-hover:bg-secondary-container/40 transition-colors duration-500">
+              <div className="w-12 h-12 rounded-lg bg-secondary-container/15 flex items-center justify-center shrink-0 group-hover:bg-secondary-container/40 transition-colors duration-500">
                 <span className="material-symbols-outlined text-secondary text-2xl">
                   {badge.icon}
                 </span>
@@ -79,7 +82,7 @@ export default function ContactoPage() {
                   {badge.desc}
                 </p>
               </div>
-            </div>
+            </motion.div>
           ))}
         </motion.div>
 
@@ -94,7 +97,7 @@ export default function ContactoPage() {
           >
             <div>
               <div className="flex items-center gap-4 mb-6">
-                <div className="w-14 h-14 rounded-xl bg-secondary-container/20 flex items-center justify-center group-hover:bg-secondary-container/40 transition-colors duration-500">
+                <div className="w-14 h-14 rounded-xl bg-secondary-container/15 flex items-center justify-center group-hover:bg-secondary-container/40 transition-colors duration-500">
                   <span className="material-symbols-outlined text-secondary text-3xl">
                     storefront
                   </span>
@@ -170,7 +173,7 @@ export default function ContactoPage() {
           >
             <div>
               <div className="flex items-center gap-4 mb-6">
-                <div className="w-14 h-14 rounded-xl bg-secondary-container/20 flex items-center justify-center group-hover:bg-secondary-container/40 transition-colors duration-500">
+                <div className="w-14 h-14 rounded-xl bg-secondary-container/15 flex items-center justify-center group-hover:bg-secondary-container/40 transition-colors duration-500">
                   <span className="material-symbols-outlined text-secondary text-3xl">
                     construction
                   </span>
@@ -250,8 +253,8 @@ export default function ContactoPage() {
                   <div
                     key={item.day}
                     className={`flex items-center justify-between px-8 py-4 ${
-                      i < schedule.length - 1 ? "border-b border-outline-variant/10" : ""
-                    } ${isToday ? "bg-secondary-container/10" : ""}`}
+                      i < schedule.length - 1 ? "border-b border-outline-variant/15" : ""
+                    } ${isToday ? "bg-secondary-container/15" : ""}`}
                   >
                     <div className="flex items-center gap-3">
                       {isToday && (
@@ -337,42 +340,42 @@ export default function ContactoPage() {
               <form className="space-y-5" onSubmit={(e) => e.preventDefault()}>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div>
-                    <label className="block text-[10px] font-bold uppercase tracking-[0.2em] text-on-surface-variant mb-2">
+                    <label className="block text-xs font-bold uppercase tracking-[0.2em] text-on-surface-variant mb-2">
                       Nome
                     </label>
                     <input
-                      className="w-full bg-surface-container-low border border-outline-variant/10 text-on-surface p-4 rounded-lg focus:ring-2 focus:ring-secondary/40 focus:border-secondary/40 focus:outline-none transition-all duration-300 placeholder:text-outline"
+                      className="w-full bg-surface-container-low border border-outline-variant/10 text-on-surface p-4 rounded-lg focus:ring-2 focus:ring-secondary/40 focus:border-secondary/40 focus:outline-none transition-all duration-200 placeholder:text-on-surface-variant/40"
                       placeholder="Seu nome"
                       type="text"
                     />
                   </div>
                   <div>
-                    <label className="block text-[10px] font-bold uppercase tracking-[0.2em] text-on-surface-variant mb-2">
+                    <label className="block text-xs font-bold uppercase tracking-[0.2em] text-on-surface-variant mb-2">
                       Telefone / WhatsApp
                     </label>
                     <input
-                      className="w-full bg-surface-container-low border border-outline-variant/10 text-on-surface p-4 rounded-lg focus:ring-2 focus:ring-secondary/40 focus:border-secondary/40 focus:outline-none transition-all duration-300 placeholder:text-outline"
+                      className="w-full bg-surface-container-low border border-outline-variant/10 text-on-surface p-4 rounded-lg focus:ring-2 focus:ring-secondary/40 focus:border-secondary/40 focus:outline-none transition-all duration-200 placeholder:text-on-surface-variant/40"
                       placeholder="Seu número"
                       type="tel"
                     />
                   </div>
                 </div>
                 <div>
-                  <label className="block text-[10px] font-bold uppercase tracking-[0.2em] text-on-surface-variant mb-2">
+                  <label className="block text-xs font-bold uppercase tracking-[0.2em] text-on-surface-variant mb-2">
                     Email (opcional)
                   </label>
                   <input
-                    className="w-full bg-surface-container-low border border-outline-variant/10 text-on-surface p-4 rounded-lg focus:ring-2 focus:ring-secondary/40 focus:border-secondary/40 focus:outline-none transition-all duration-300 placeholder:text-outline"
+                    className="w-full bg-surface-container-low border border-outline-variant/10 text-on-surface p-4 rounded-lg focus:ring-2 focus:ring-secondary/40 focus:border-secondary/40 focus:outline-none transition-all duration-200 placeholder:text-on-surface-variant/40"
                     placeholder="Seu email"
                     type="email"
                   />
                 </div>
                 <div>
-                  <label className="block text-[10px] font-bold uppercase tracking-[0.2em] text-on-surface-variant mb-2">
+                  <label className="block text-xs font-bold uppercase tracking-[0.2em] text-on-surface-variant mb-2">
                     Mensagem / Lista de Materiais
                   </label>
                   <textarea
-                    className="w-full bg-surface-container-low border border-outline-variant/10 text-on-surface p-4 rounded-lg focus:ring-2 focus:ring-secondary/40 focus:border-secondary/40 focus:outline-none transition-all duration-300 resize-none placeholder:text-outline"
+                    className="w-full bg-surface-container-low border border-outline-variant/10 text-on-surface p-4 rounded-lg focus:ring-2 focus:ring-secondary/40 focus:border-secondary/40 focus:outline-none transition-all duration-200 resize-none placeholder:text-on-surface-variant/40"
                     placeholder="Descreva o que precisa ou envie a sua lista de materiais..."
                     rows={5}
                   />
