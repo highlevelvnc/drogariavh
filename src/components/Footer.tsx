@@ -162,7 +162,7 @@ export function Footer() {
           }}
         >
           <p className="text-on-surface/40 text-xs">
-            &copy; 2025 Vínculos Harmoniosos - Construção &amp; Drogaria. Todos os
+            &copy; 2025 VH Remodelações - Construção &amp; Drogaria. Todos os
             direitos reservados.
           </p>
         </div>
