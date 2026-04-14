@@ -103,7 +103,7 @@ export function Footer() {
               </li>
               <li>
                 <a
-                  href="#"
+                  href="/"
                   className="animated-underline text-on-surface/50 hover:text-secondary transition-all duration-300 w-fit inline-block"
                 >
                   VH Remodelações

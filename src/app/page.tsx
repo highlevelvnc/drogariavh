@@ -3,438 +3,331 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 
-const steps = [
-  {
-    num: "01",
-    icon: "inventory_2",
-    title: "Escolha os Produtos",
-    desc: "Navegue pelas nossas categorias ou visite-nos em Sintra para ver o nosso stock completo.",
-  },
-  {
-    num: "02",
-    icon: "chat",
-    title: "Peça via WhatsApp",
-    desc: "Envie-nos a sua lista de materiais e receba um orçamento imediato e personalizado.",
-  },
-  {
-    num: "03",
-    icon: "local_shipping",
-    title: "Entregamos em Sua Casa",
-    desc: "Serviço de entrega rápido e seguro em toda a região de Sintra e arredores.",
-  },
-];
+/* ────────────────────────── DATA ────────────────────────── */
 
 const categories = [
   {
     title: "Ferramentas Elétricas",
-    desc: "Rebarbadoras, berbequins, lixadeiras, martelos perfuradores. Marcas profissionais.",
+    desc: "Rebarbadoras, berbequins, lixadeiras, martelos perfuradores.",
     image: "/servicos/servico-03.jpg",
-    span: "md:col-span-4 md:row-span-2",
-    large: true,
+    icon: "construction",
   },
   {
     title: "Tintas e Vernizes",
-    desc: "Tintas de interior e exterior, primários, vernizes, diluentes. CIN, Robbialac, Dyrup.",
+    desc: "Interior, exterior, primários, vernizes. CIN, Robbialac, Dyrup.",
     image: "/servicos/servico-08.jpg",
-    span: "md:col-span-2 md:row-span-1",
-    large: false,
+    icon: "format_paint",
   },
   {
     title: "Lixas e Abrasivos",
-    desc: "Lixas de água, lixas de ferro, discos de corte, discos de lixa para rebarbadora.",
+    desc: "Lixas de água, ferro, discos de corte e lixa para rebarbadora.",
     image: "/servicos/servico-12.jpg",
-    span: "md:col-span-2 md:row-span-1",
-    large: false,
+    icon: "carpenter",
   },
   {
     title: "Material Elétrico",
-    desc: "Cabos, tomadas, disjuntores, quadros elétricos, iluminação LED.",
+    desc: "Cabos, tomadas, disjuntores, quadros elétricos, LED.",
     image: "/servicos/servico-15.jpg",
-    span: "md:col-span-2 md:row-span-2",
-    large: false,
+    icon: "electrical_services",
   },
   {
     title: "Canalização",
-    desc: "Tubos PPR, acessórios PVC, torneiras, válvulas, sifões, cola para tubos.",
+    desc: "Tubos PPR, acessórios PVC, torneiras, válvulas, sifões.",
     image: "/servicos/servico-18.jpg",
-    span: "md:col-span-2 md:row-span-1",
-    large: false,
+    icon: "plumbing",
   },
   {
     title: "Cimento e Argamassas",
-    desc: "Cimento Portland, argamassa de reboco, betão pronto, gesso, cal.",
+    desc: "Cimento Portland, argamassa, betão pronto, gesso, cal.",
     image: "/servicos/servico-20.jpg",
-    span: "md:col-span-2 md:row-span-1",
-    large: false,
+    icon: "foundation",
   },
   {
     title: "Ferramentas Manuais",
-    desc: "Chaves de fenda, alicates, martelos, fitas métricas, níveis, esquadros.",
+    desc: "Chaves, alicates, martelos, fitas métricas, níveis.",
     image: "/servicos/servico-25.jpg",
-    span: "md:col-span-2 md:row-span-1",
-    large: false,
+    icon: "handyman",
   },
   {
     title: "Equipamento de Proteção",
-    desc: "Capacetes, luvas, botas de segurança, óculos, arneses, coletes.",
+    desc: "Capacetes, luvas, botas, óculos, arneses, coletes.",
     image: "/servicos/servico-30.jpg",
-    span: "md:col-span-2 md:row-span-1",
-    large: false,
+    icon: "health_and_safety",
   },
 ];
 
 const featuredProducts = [
   {
     name: "Rebarbadora Bosch 125mm",
-    desc: "Potência de 720W, disco de 125mm. Ideal para corte e desbaste em obra.",
+    desc: "720W, disco 125mm. Corte e desbaste profissional.",
     image: "/servicos/servico-03.jpg",
+    tag: "Mais Vendido",
   },
   {
     name: "Tinta CIN Nova Interior 15L",
-    desc: "Tinta plástica de alta cobertura para paredes interiores. Acabamento mate.",
+    desc: "Alta cobertura, acabamento mate. Paredes interiores.",
     image: "/servicos/servico-08.jpg",
+    tag: "Popular",
   },
   {
     name: "Lixadeira Orbital Makita",
-    desc: "Lixadeira orbital profissional, base de velcro, aspiração de pó integrada.",
+    desc: "Base velcro, aspiração de pó integrada. Profissional.",
     image: "/servicos/servico-12.jpg",
+    tag: "Novidade",
   },
   {
-    name: "Kit Ferramentas Profissional 108 peças",
-    desc: "Mala completa com chaves, alicates, pontas e acessórios para todo o tipo de trabalho.",
+    name: "Kit Ferramentas 108 Peças",
+    desc: "Mala completa: chaves, alicates, pontas e acessórios.",
     image: "/servicos/servico-25.jpg",
+    tag: "Destaque",
   },
 ];
 
 const trustPoints = [
-  {
-    icon: "support_agent",
-    title: "Aconselhamento Técnico Especializado",
-    desc: "Equipa com experiência em obra para o ajudar a escolher o material certo.",
-  },
-  {
-    icon: "local_shipping",
-    title: "Entregas na Região de Sintra",
-    desc: "Serviço de entrega rápida para obras e particulares na zona de Sintra.",
-  },
-  {
-    icon: "savings",
-    title: "Preços Competitivos para Profissionais",
-    desc: "Condições especiais para empresas de construção e profissionais regulares.",
-  },
-  {
-    icon: "warehouse",
-    title: "Stock Disponível para Entrega Imediata",
-    desc: "Milhares de referências em armazém prontas a levantar ou entregar.",
-  },
+  { icon: "support_agent", title: "Aconselhamento Técnico", desc: "Equipa com experiência em obra." },
+  { icon: "local_shipping", title: "Entregas em Sintra", desc: "Entrega rápida na região." },
+  { icon: "savings", title: "Preços Profissionais", desc: "Condições especiais para empresas." },
+  { icon: "warehouse", title: "Stock Imediato", desc: "Milhares de referências em armazém." },
 ];
 
-const stagger = {
-  hidden: {},
-  visible: {
-    transition: { staggerChildren: 0.15 },
-  },
-};
+const WA = "https://wa.me/351926010809";
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
-} as const;
+/* ────────────────────────── COMPONENT ────────────────────────── */
 
 export default function DrogariaHome() {
   return (
     <>
-      {/* ───────── Hero ───────── */}
-      <header className="relative min-h-screen w-full flex items-end overflow-hidden">
+      {/* ═══════════ HERO — Mobile-first, compacto ═══════════ */}
+      <header className="relative min-h-[85vh] md:min-h-screen w-full flex items-end overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
             src="/drogaria/drogaria-loja.jpg"
             alt="Drogaria VH Sintra"
             fill
-            className="object-cover scale-105"
+            className="object-cover"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-surface/60 via-surface/20 to-surface" />
-          <div className="absolute inset-0 bg-gradient-to-r from-surface/70 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-surface via-surface/70 to-surface/30" />
         </div>
 
         <motion.div
-          variants={stagger}
-          initial="hidden"
-          animate="visible"
-          className="relative z-10 w-full max-w-screen-2xl mx-auto px-8 pb-28"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="relative z-10 w-full px-5 md:px-8 pb-8 md:pb-20 max-w-screen-2xl mx-auto"
         >
-          <div className="max-w-4xl">
-            {/* Animated badge */}
-            <motion.div variants={fadeUp} className="mb-8">
-              <span className="inline-flex items-center gap-2.5 px-4 py-2 bg-secondary-container/80 backdrop-blur-sm text-white text-[11px] font-bold tracking-[0.2em] uppercase rounded-full border border-secondary/20">
-                <span className="relative flex h-2.5 w-2.5">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75" />
-                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-secondary" />
-                </span>
-                Loja Física em Sintra
-              </span>
-            </motion.div>
-
-            <motion.h1
-              variants={fadeUp}
-              className="font-[var(--font-manrope)] font-extrabold text-5xl md:text-7xl lg:text-8xl text-on-surface leading-[1.0] tracking-tighter mb-6"
-            >
-              Tudo para a sua{" "}
-              <span className="text-gradient">Construção</span>
-            </motion.h1>
-
-            <motion.p
-              variants={fadeUp}
-              className="text-on-surface-variant text-lg md:text-2xl max-w-2xl font-normal leading-relaxed mb-10"
-            >
-              Ferramentas, tintas, materiais elétricos e de canalização.
-              A drogaria de confiança dos profissionais em Sintra.
-            </motion.p>
-
-            <motion.div variants={fadeUp} className="flex flex-wrap gap-4">
-              <a
-                href="https://wa.me/351926010809"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="riveted-btn flex items-center gap-3 px-8 py-4 rounded-lg text-white font-[var(--font-manrope)] font-extrabold tracking-widest uppercase text-sm"
-              >
-                <span className="material-symbols-outlined text-lg">chat</span>
-                Pedir via WhatsApp
-                <span className="material-symbols-outlined text-lg">arrow_forward</span>
-              </a>
-              <a
-                href="#categorias"
-                className="flex items-center gap-3 px-8 py-4 rounded-lg text-on-surface font-[var(--font-manrope)] font-bold tracking-widest uppercase text-sm ghost-border hover:bg-surface-container-high/50 transition-all"
-              >
-                Ver Produtos
-                <span className="material-symbols-outlined text-lg">expand_more</span>
-              </a>
-            </motion.div>
-          </div>
-        </motion.div>
-
-        {/* Scroll indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.5, duration: 1 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2"
-        >
-          <span className="text-on-surface-variant text-[10px] uppercase tracking-[0.3em] font-bold">
-            Explorar
+          {/* Badge */}
+          <span className="inline-flex items-center gap-2 px-3 py-1.5 bg-secondary-container/80 text-white text-[10px] md:text-[11px] font-bold tracking-[0.15em] uppercase rounded-full mb-4 md:mb-6">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-secondary" />
+            </span>
+            Loja Aberta em Sintra
           </span>
-          <motion.span
-            animate={{ y: [0, 8, 0] }}
-            transition={{ repeat: Infinity, duration: 1.8, ease: "easeInOut" }}
-            className="material-symbols-outlined text-secondary text-xl"
-          >
-            keyboard_arrow_down
-          </motion.span>
+
+          <h1 className="font-[var(--font-manrope)] font-extrabold text-3xl sm:text-5xl md:text-7xl text-on-surface leading-[1.1] tracking-tighter mb-3 md:mb-6 max-w-3xl">
+            Materiais de{" "}
+            <span className="text-gradient">Construção</span>
+          </h1>
+
+          <p className="text-on-surface-variant text-sm sm:text-base md:text-lg max-w-lg leading-relaxed mb-6 md:mb-8">
+            Ferramentas, tintas, material elétrico e canalização.
+            A drogaria dos profissionais em Sintra.
+          </p>
+
+          {/* CTAs — stack on mobile */}
+          <div className="flex flex-col sm:flex-row gap-3">
+            <a
+              href={WA}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="riveted-btn flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl text-white font-[var(--font-manrope)] font-bold tracking-wider uppercase text-xs"
+            >
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              Pedir via WhatsApp
+            </a>
+            <a
+              href="#produtos"
+              className="flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl text-on-surface font-bold tracking-wider uppercase text-xs ghost-border hover:bg-surface-container-high/50 transition-all"
+            >
+              Ver Produtos
+              <span className="material-symbols-outlined text-base">expand_more</span>
+            </a>
+          </div>
         </motion.div>
       </header>
 
-      {/* ───────── Como Funciona ───────── */}
-      <section className="py-28 bg-surface-container-low section-divider">
-        <div className="max-w-screen-2xl mx-auto px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mb-20 text-center"
-          >
-            <span className="text-secondary text-[11px] font-bold tracking-[0.3em] uppercase">
-              Simples e Rápido
-            </span>
-            <h2 className="font-[var(--font-manrope)] font-bold text-4xl md:text-5xl text-on-surface tracking-tight mt-4 mb-4">
-              Como Funciona
-            </h2>
-            <div className="h-1 w-24 bg-secondary-container mx-auto" />
-          </motion.div>
-
-          <div className="relative grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
-            {/* Connecting line (desktop only) */}
-            <div className="hidden md:block absolute top-1/2 left-[16.66%] right-[16.66%] h-px bg-gradient-to-r from-transparent via-outline-variant/30 to-transparent -translate-y-4 z-0" />
-
-            {steps.map((step, i) => (
-              <motion.div
-                key={step.num}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.2, duration: 0.5 }}
-                className="group relative z-10"
-              >
-                <div className="text-secondary font-[var(--font-manrope)] font-black text-8xl opacity-[0.06] mb-[-2.5rem] group-hover:opacity-25 transition-opacity duration-500 text-center">
-                  {step.num}
-                </div>
-                <div className="relative z-10 p-8 md:p-10 bg-surface-container-high rounded-xl glow-card ghost-border text-center">
-                  <div className="w-16 h-16 rounded-full bg-secondary-container/30 flex items-center justify-center mx-auto mb-6 group-hover:bg-secondary-container/50 transition-colors duration-500">
-                    <span className="material-symbols-outlined text-secondary text-3xl">
-                      {step.icon}
-                    </span>
-                  </div>
-                  <h3 className="font-[var(--font-manrope)] font-bold text-xl text-on-surface mb-4">
-                    {step.title}
-                  </h3>
-                  <p className="text-on-surface-variant font-normal leading-relaxed text-sm">
-                    {step.desc}
+      {/* ═══════════ TRUST BAR — Faixa compacta ═══════════ */}
+      <section className="bg-surface-container-low border-y border-white/5">
+        <div className="max-w-screen-2xl mx-auto px-5 md:px-8 py-5 md:py-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
+            {trustPoints.map((p) => (
+              <div key={p.title} className="flex items-center gap-3">
+                <span className="material-symbols-outlined text-secondary text-xl md:text-2xl shrink-0">
+                  {p.icon}
+                </span>
+                <div className="min-w-0">
+                  <p className="font-[var(--font-manrope)] font-bold text-on-surface text-xs md:text-sm leading-tight truncate">
+                    {p.title}
+                  </p>
+                  <p className="text-on-surface-variant text-[10px] md:text-xs leading-tight hidden sm:block">
+                    {p.desc}
                   </p>
                 </div>
-
-                {/* Arrow between steps (desktop only) */}
-                {i < steps.length - 1 && (
-                  <div className="hidden md:flex absolute -right-6 top-1/2 translate-y-2 z-20">
-                    <motion.span
-                      animate={{ x: [0, 6, 0] }}
-                      transition={{ repeat: Infinity, duration: 2, ease: "easeInOut", delay: i * 0.3 }}
-                      className="material-symbols-outlined text-secondary/40 text-2xl"
-                    >
-                      arrow_forward
-                    </motion.span>
-                  </div>
-                )}
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ───────── Categorias de Produtos ───────── */}
-      <section id="categorias" className="py-28 bg-surface">
-        <div className="max-w-screen-2xl mx-auto px-8">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-            >
-              <span className="text-secondary text-[11px] font-bold tracking-[0.3em] uppercase">
-                O Que Vendemos
+      {/* ═══════════ CATEGORIAS — Grid mobile-first tipo loja ═══════════ */}
+      <section id="produtos" className="py-10 md:py-20 bg-surface">
+        <div className="max-w-screen-2xl mx-auto px-5 md:px-8">
+          {/* Header */}
+          <div className="flex items-end justify-between mb-6 md:mb-12">
+            <div>
+              <span className="text-secondary text-[10px] md:text-[11px] font-bold tracking-[0.2em] uppercase">
+                Categorias
               </span>
-              <h2 className="font-[var(--font-manrope)] font-bold text-4xl md:text-5xl text-on-surface tracking-tight mt-4 mb-4">
-                Categorias de Produtos
+              <h2 className="font-[var(--font-manrope)] font-bold text-2xl md:text-4xl text-on-surface tracking-tight mt-1">
+                O Que Vendemos
               </h2>
-              <p className="text-on-surface-variant max-w-xl">
-                A precisão de um projeto começa com a escolha certa dos
-                materiais. Qualidade profissional ao seu alcance.
-              </p>
-            </motion.div>
+            </div>
             <a
-              href="https://wa.me/351926010809"
+              href={WA}
               target="_blank"
               rel="noopener noreferrer"
-              className="animated-underline text-secondary font-[var(--font-manrope)] font-bold tracking-widest uppercase text-sm pb-1 shrink-0"
+              className="hidden md:inline-flex animated-underline text-secondary font-bold text-sm uppercase tracking-wider pb-1"
             >
-              Ver Catálogo Completo
+              Catálogo Completo
             </a>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-6 gap-3 auto-rows-[220px] md:auto-rows-[250px]">
+          {/* Category grid — 2 cols on mobile, 4 on tablet, bento on desktop */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
             {categories.map((cat, i) => (
               <motion.a
                 key={cat.title}
-                href="https://wa.me/351926010809"
+                href={WA}
                 target="_blank"
                 rel="noopener noreferrer"
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.08, duration: 0.5 }}
-                className={`${cat.span} relative group overflow-hidden rounded-xl glow-card`}
+                transition={{ delay: i * 0.05, duration: 0.4 }}
+                className={`relative group overflow-hidden rounded-2xl ${
+                  i === 0 ? "col-span-2 row-span-2 aspect-square md:aspect-auto" : "aspect-square"
+                }`}
               >
+                {/* Image */}
                 <img
                   src={cat.image}
                   alt={cat.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   loading="lazy"
                 />
-                {/* Default gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-surface/80 via-surface/30 to-transparent transition-opacity duration-500 group-hover:opacity-0" />
+                {/* Gradient — always visible, not fighting with text */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#000]/80 via-[#000]/30 to-transparent" />
 
-                {/* Hover overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-secondary-container/95 via-surface/80 to-surface/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-                {/* Default content */}
-                <div className="absolute inset-0 p-6 md:p-8 flex flex-col justify-end transition-all duration-500 group-hover:opacity-0 group-hover:translate-y-2">
-                  <h4 className={`font-[var(--font-manrope)] font-extrabold text-white ${cat.large ? "text-2xl md:text-3xl" : "text-lg md:text-xl"}`}>
+                {/* Content — always at bottom, clear and readable */}
+                <div className="absolute inset-0 flex flex-col justify-end p-3 sm:p-4 md:p-5">
+                  {/* Icon */}
+                  <div className="w-8 h-8 md:w-10 md:h-10 rounded-lg bg-white/10 backdrop-blur-sm flex items-center justify-center mb-2 md:mb-3">
+                    <span className="material-symbols-outlined text-white text-base md:text-xl">
+                      {cat.icon}
+                    </span>
+                  </div>
+                  <h3 className={`font-[var(--font-manrope)] font-bold text-white leading-tight ${
+                    i === 0 ? "text-lg sm:text-xl md:text-2xl" : "text-sm sm:text-base md:text-lg"
+                  }`}>
                     {cat.title}
-                  </h4>
-                  {cat.large && (
-                    <p className="text-white/70 text-sm mt-2 max-w-md">{cat.desc}</p>
-                  )}
-                </div>
-
-                {/* Hover content */}
-                <div className="absolute inset-0 p-6 md:p-8 flex flex-col justify-end opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-400">
-                  <h4 className={`font-[var(--font-manrope)] font-extrabold text-white ${cat.large ? "text-2xl md:text-3xl" : "text-lg md:text-xl"} mb-2`}>
-                    {cat.title}
-                  </h4>
-                  <p className="text-white/80 text-sm mb-4 leading-relaxed">{cat.desc}</p>
-                  <span className="inline-flex items-center gap-2 text-secondary font-[var(--font-manrope)] font-bold text-sm uppercase tracking-wider">
-                    Pedir via WhatsApp
-                    <span className="material-symbols-outlined text-base">arrow_forward</span>
-                  </span>
+                  </h3>
+                  <p className={`text-white/60 leading-snug mt-1 ${
+                    i === 0 ? "text-xs sm:text-sm" : "text-[10px] sm:text-xs hidden sm:block"
+                  }`}>
+                    {cat.desc}
+                  </p>
+                  {/* WhatsApp arrow — visible on hover desktop, always on mobile */}
+                  <div className="flex items-center gap-1 mt-2 md:mt-3">
+                    <span className="text-secondary text-[10px] sm:text-xs font-bold uppercase tracking-wider">
+                      Pedir
+                    </span>
+                    <span className="material-symbols-outlined text-secondary text-sm">
+                      arrow_forward
+                    </span>
+                  </div>
                 </div>
               </motion.a>
             ))}
           </div>
+
+          {/* Mobile CTA */}
+          <a
+            href={WA}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="md:hidden riveted-btn flex items-center justify-center gap-2 w-full py-4 rounded-xl text-white font-bold uppercase tracking-wider text-xs mt-6"
+          >
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Ver Catálogo Completo no WhatsApp
+          </a>
         </div>
       </section>
 
-      {/* ───────── Produtos Mais Procurados ───────── */}
-      <section className="py-28 bg-surface-container-low section-divider">
-        <div className="max-w-screen-2xl mx-auto px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mb-16 text-center"
-          >
-            <span className="text-secondary text-[11px] font-bold tracking-[0.3em] uppercase">
-              Mais Vendidos
-            </span>
-            <h2 className="font-[var(--font-manrope)] font-bold text-4xl md:text-5xl text-on-surface tracking-tight mt-4 mb-4">
-              Produtos Mais Procurados
-            </h2>
-            <p className="text-on-surface-variant max-w-xl mx-auto">
-              Os produtos que os profissionais de Sintra mais escolhem para as suas obras.
-            </p>
-          </motion.div>
+      {/* ═══════════ PRODUTOS DESTAQUE — Cards horizontais no mobile ═══════════ */}
+      <section className="py-10 md:py-20 bg-surface-container-low">
+        <div className="max-w-screen-2xl mx-auto px-5 md:px-8">
+          <div className="flex items-end justify-between mb-6 md:mb-12">
+            <div>
+              <span className="text-secondary text-[10px] md:text-[11px] font-bold tracking-[0.2em] uppercase">
+                Mais Vendidos
+              </span>
+              <h2 className="font-[var(--font-manrope)] font-bold text-2xl md:text-4xl text-on-surface tracking-tight mt-1">
+                Produtos em Destaque
+              </h2>
+            </div>
+          </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {/* Products — horizontal scroll on mobile, grid on desktop */}
+          <div className="flex md:grid md:grid-cols-4 gap-4 overflow-x-auto pb-4 md:pb-0 snap-x snap-mandatory md:snap-none -mx-5 px-5 md:mx-0 md:px-0">
             {featuredProducts.map((product, i) => (
               <motion.div
                 key={product.name}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.1, duration: 0.5 }}
-                className="group glow-card ghost-border rounded-xl overflow-hidden bg-surface-container"
+                transition={{ delay: i * 0.08, duration: 0.4 }}
+                className="min-w-[260px] md:min-w-0 snap-start ghost-border rounded-2xl overflow-hidden bg-surface-container flex-shrink-0 md:flex-shrink group"
               >
-                <div className="relative h-52 overflow-hidden">
+                {/* Image */}
+                <div className="relative h-40 md:h-48 overflow-hidden">
                   <img
                     src={product.image}
                     alt={product.name}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-surface-container via-transparent to-transparent" />
+                  {/* Tag */}
+                  <span className="absolute top-3 left-3 px-2.5 py-1 bg-secondary-container/90 text-white text-[9px] font-bold uppercase tracking-wider rounded-full">
+                    {product.tag}
+                  </span>
                 </div>
-                <div className="p-6">
-                  <h4 className="font-[var(--font-manrope)] font-bold text-lg text-on-surface mb-2 leading-tight">
+                {/* Info */}
+                <div className="p-4 md:p-5">
+                  <h4 className="font-[var(--font-manrope)] font-bold text-sm md:text-base text-on-surface mb-1.5 leading-tight">
                     {product.name}
                   </h4>
-                  <p className="text-on-surface-variant text-sm font-light leading-relaxed mb-5">
+                  <p className="text-on-surface-variant text-xs leading-relaxed mb-4">
                     {product.desc}
                   </p>
                   <a
-                    href="https://wa.me/351926010809"
+                    href={WA}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="riveted-btn flex items-center justify-center gap-2 w-full px-4 py-3 rounded-lg text-white font-[var(--font-manrope)] font-bold tracking-wider uppercase text-xs"
+                    className="riveted-btn flex items-center justify-center gap-2 w-full py-2.5 rounded-xl text-white font-bold uppercase text-[10px] md:text-xs tracking-wider"
                   >
-                    <span className="material-symbols-outlined text-base">chat</span>
+                    <span className="material-symbols-outlined text-sm">chat</span>
                     Encomendar
                   </a>
                 </div>
@@ -444,43 +337,39 @@ export default function DrogariaHome() {
         </div>
       </section>
 
-      {/* ───────── Porque Escolher a Drogaria VH ───────── */}
-      <section className="py-28 bg-surface">
-        <div className="max-w-screen-2xl mx-auto px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mb-16 text-center"
-          >
-            <span className="text-secondary text-[11px] font-bold tracking-[0.3em] uppercase">
-              A Nossa Garantia
-            </span>
-            <h2 className="font-[var(--font-manrope)] font-bold text-4xl md:text-5xl text-on-surface tracking-tight mt-4 mb-4">
-              Porque Escolher a Drogaria VH?
-            </h2>
-          </motion.div>
+      {/* ═══════════ COMO FUNCIONA — Compacto ═══════════ */}
+      <section className="py-10 md:py-20 bg-surface">
+        <div className="max-w-screen-2xl mx-auto px-5 md:px-8">
+          <h2 className="font-[var(--font-manrope)] font-bold text-2xl md:text-4xl text-on-surface tracking-tight mb-8 md:mb-12 text-center">
+            Como Comprar
+          </h2>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {trustPoints.map((point, i) => (
+          <div className="grid grid-cols-3 gap-3 md:gap-8">
+            {[
+              { num: "1", icon: "inventory_2", label: "Escolha" },
+              { num: "2", icon: "chat", label: "WhatsApp" },
+              { num: "3", icon: "local_shipping", label: "Entrega" },
+            ].map((step, i) => (
               <motion.div
-                key={point.title}
-                initial={{ opacity: 0, y: 20 }}
+                key={step.num}
+                initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.1, duration: 0.5 }}
-                className="glow-card ghost-border rounded-xl bg-surface-container p-8 text-center group"
+                transition={{ delay: i * 0.1, duration: 0.4 }}
+                className="text-center"
               >
-                <div className="w-16 h-16 rounded-full bg-secondary-container/15 flex items-center justify-center mx-auto mb-6 group-hover:bg-secondary-container/40 transition-colors duration-500">
-                  <span className="material-symbols-outlined text-secondary text-3xl">
-                    {point.icon}
+                <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-secondary-container/20 flex items-center justify-center mx-auto mb-3">
+                  <span className="material-symbols-outlined text-secondary text-xl md:text-3xl">
+                    {step.icon}
                   </span>
                 </div>
-                <h4 className="font-[var(--font-manrope)] font-bold text-on-surface text-lg mb-3 leading-tight">
-                  {point.title}
-                </h4>
-                <p className="text-on-surface-variant text-sm font-light leading-relaxed">
-                  {point.desc}
+                <p className="font-[var(--font-manrope)] font-bold text-xs md:text-sm text-on-surface">
+                  {step.label}
+                </p>
+                <p className="text-on-surface-variant text-[10px] md:text-xs mt-0.5 hidden md:block">
+                  {i === 0 && "Navegue pelas categorias"}
+                  {i === 1 && "Envie a sua lista"}
+                  {i === 2 && "Receba em casa"}
                 </p>
               </motion.div>
             ))}
@@ -488,125 +377,74 @@ export default function DrogariaHome() {
         </div>
       </section>
 
-      {/* ───────── Localização ───────── */}
-      <section className="py-28 bg-surface-container-low">
-        <div className="max-w-screen-2xl mx-auto px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-            >
-              <span className="text-secondary text-[11px] font-bold tracking-[0.3em] uppercase">
-                Visite-nos
-              </span>
-              <h2 className="font-[var(--font-manrope)] font-extrabold text-4xl md:text-5xl text-on-surface mt-4 mb-10 leading-tight tracking-tighter">
-                Estamos no coração de Sintra.
+      {/* ═══════════ LOCALIZAÇÃO — Compacto no mobile ═══════════ */}
+      <section className="py-10 md:py-20 bg-surface-container-low">
+        <div className="max-w-screen-2xl mx-auto px-5 md:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-16 items-center">
+            {/* Info */}
+            <div>
+              <h2 className="font-[var(--font-manrope)] font-bold text-2xl md:text-4xl text-on-surface tracking-tight mb-6 md:mb-10">
+                Visite-nos em Sintra
               </h2>
-              <div className="space-y-8">
-                <div className="flex gap-6 items-start group">
-                  <div className="w-14 h-14 rounded-xl bg-surface-container-highest flex items-center justify-center shrink-0 group-hover:bg-secondary-container/30 transition-colors duration-500">
-                    <span className="material-symbols-outlined text-secondary text-2xl">
-                      location_on
-                    </span>
+              <div className="space-y-4 md:space-y-6">
+                {[
+                  { icon: "location_on", label: "Morada", value: "Av. Dr. Álvaro de Vasconcelos 8, Sintra" },
+                  { icon: "schedule", label: "Horário", value: "Seg-Sáb: 08:30 – 19:00" },
+                  { icon: "call", label: "Telefone", value: "926 010 809" },
+                ].map((item) => (
+                  <div key={item.label} className="flex items-center gap-4">
+                    <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-surface-container-highest flex items-center justify-center shrink-0">
+                      <span className="material-symbols-outlined text-secondary text-lg md:text-xl">
+                        {item.icon}
+                      </span>
+                    </div>
+                    <div>
+                      <p className="text-on-surface-variant text-[10px] md:text-xs font-bold uppercase tracking-wider">
+                        {item.label}
+                      </p>
+                      <p className="font-[var(--font-manrope)] font-medium text-on-surface text-sm md:text-base">
+                        {item.value}
+                      </p>
+                    </div>
                   </div>
-                  <div>
-                    <p className="font-[var(--font-manrope)] font-bold text-lg text-primary">
-                      Localização
-                    </p>
-                    <p className="text-on-surface-variant font-light">
-                      Av. Dr. Álvaro de Vasconcelos 8, 2710-420 Sintra
-                    </p>
-                  </div>
-                </div>
-                <div className="flex gap-6 items-start group">
-                  <div className="w-14 h-14 rounded-xl bg-surface-container-highest flex items-center justify-center shrink-0 group-hover:bg-secondary-container/30 transition-colors duration-500">
-                    <span className="material-symbols-outlined text-secondary text-2xl">
-                      schedule
-                    </span>
-                  </div>
-                  <div>
-                    <p className="font-[var(--font-manrope)] font-bold text-lg text-primary">
-                      Horário
-                    </p>
-                    <p className="text-on-surface-variant font-light">
-                      Segunda - Sábado: 08:30 - 19:00
-                    </p>
-                  </div>
-                </div>
-                <div className="flex gap-6 items-start group">
-                  <div className="w-14 h-14 rounded-xl bg-surface-container-highest flex items-center justify-center shrink-0 group-hover:bg-secondary-container/30 transition-colors duration-500">
-                    <span className="material-symbols-outlined text-secondary text-2xl">
-                      call
-                    </span>
-                  </div>
-                  <div>
-                    <p className="font-[var(--font-manrope)] font-bold text-lg text-primary">
-                      WhatsApp / Telefone
-                    </p>
-                    <p className="text-on-surface-variant font-light">
-                      926 010 809
-                    </p>
-                  </div>
-                </div>
-                <div className="pt-4 flex flex-wrap gap-4">
-                  <a
-                    href="https://wa.me/351926010809"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="riveted-btn inline-flex items-center gap-3 px-6 py-3.5 rounded-lg text-white font-[var(--font-manrope)] font-bold tracking-wider uppercase text-xs"
-                  >
-                    <span className="material-symbols-outlined text-base">chat</span>
-                    Fale Connosco
-                  </a>
-                  <a
-                    href="https://instagram.com/drogariavh"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-3 bg-surface-container-high px-6 py-3.5 rounded-lg ghost-border hover:bg-surface-bright transition-colors font-[var(--font-manrope)] font-bold tracking-wider uppercase text-xs text-on-surface"
-                  >
-                    <span className="material-symbols-outlined text-secondary text-base">
-                      photo_camera
-                    </span>
-                    @drogariavh
-                  </a>
-                </div>
+                ))}
               </div>
-            </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="relative"
-            >
-              <div className="relative h-[520px] w-full rounded-xl overflow-hidden ghost-border">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12440.36!2d-9.38!3d38.8!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd1ec5c4b4b3b3b3%3A0x0!2sSintra!5e0!3m2!1spt-PT!2spt!4v1"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  title="Localização Drogaria VH em Sintra"
-                />
+              <div className="flex gap-3 mt-6 md:mt-8">
+                <a
+                  href={WA}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="riveted-btn flex items-center gap-2 px-5 py-3 rounded-xl text-white font-bold uppercase text-[10px] md:text-xs tracking-wider"
+                >
+                  <span className="material-symbols-outlined text-sm">chat</span>
+                  WhatsApp
+                </a>
+                <a
+                  href="https://instagram.com/drogariavh"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 px-5 py-3 rounded-xl ghost-border hover:bg-surface-container-high/50 transition-all text-on-surface font-bold uppercase text-[10px] md:text-xs tracking-wider"
+                >
+                  <span className="material-symbols-outlined text-secondary text-sm">photo_camera</span>
+                  Instagram
+                </a>
               </div>
-              {/* Address overlay */}
-              <div className="absolute bottom-4 left-4 right-4 bg-surface/90 backdrop-blur-md rounded-lg p-4 ghost-border">
-                <div className="flex items-center gap-3">
-                  <span className="material-symbols-outlined text-secondary">pin_drop</span>
-                  <div>
-                    <p className="font-[var(--font-manrope)] font-bold text-sm text-on-surface">
-                      Drogaria VH
-                    </p>
-                    <p className="text-on-surface-variant text-xs">
-                      Av. Dr. Álvaro de Vasconcelos 8, 2710-420 Sintra
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
+            </div>
+
+            {/* Map */}
+            <div className="relative h-[280px] md:h-[450px] w-full rounded-2xl overflow-hidden ghost-border">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3113.5!2d-9.3817!3d38.7976!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd1edab2ae1e5c7b%3A0x10f54c41bc4f6402!2sSintra!5e0!3m2!1spt-PT!2spt!4v1"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Localização Drogaria VH em Sintra"
+              />
+            </div>
           </div>
         </div>
       </section>

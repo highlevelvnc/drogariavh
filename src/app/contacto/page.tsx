@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 
 const schedule = [
@@ -36,6 +37,32 @@ const fadeUp = {
 };
 
 export default function ContactoPage() {
+  const [nome, setNome] = useState("");
+  const [telefone, setTelefone] = useState("");
+  const [email, setEmail] = useState("");
+  const [mensagem, setMensagem] = useState("");
+  const [enviado, setEnviado] = useState(false);
+
+  function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+
+    const text = [
+      "*Novo Pedido via Site — Drogaria VH*",
+      "",
+      `*Nome:* ${nome}`,
+      `*Telefone:* ${telefone}`,
+      "",
+      "*Pedido/Mensagem:*",
+      mensagem,
+    ].join("\n");
+
+    const url = `https://wa.me/351926010809?text=${encodeURIComponent(text)}`;
+    window.open(url, "_blank");
+
+    setEnviado(true);
+    setTimeout(() => setEnviado(false), 3000);
+  }
+
   return (
     <div className="pt-32 pb-24">
       <div className="max-w-screen-2xl mx-auto px-8">
@@ -337,7 +364,7 @@ export default function ContactoPage() {
               <p className="text-on-surface-variant text-sm font-light mb-8">
                 Preencha o formulário e entraremos em contacto consigo rapidamente.
               </p>
-              <form className="space-y-5" onSubmit={(e) => e.preventDefault()}>
+              <form className="space-y-5" onSubmit={handleSubmit}>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div>
                     <label className="block text-xs font-bold uppercase tracking-[0.2em] text-on-surface-variant mb-2">
@@ -347,6 +374,8 @@ export default function ContactoPage() {
                       className="w-full bg-surface-container-low border border-outline-variant/10 text-on-surface p-4 rounded-lg focus:ring-2 focus:ring-secondary/40 focus:border-secondary/40 focus:outline-none transition-all duration-200 placeholder:text-on-surface-variant/40"
                       placeholder="Seu nome"
                       type="text"
+                      value={nome}
+                      onChange={(e) => setNome(e.target.value)}
                     />
                   </div>
                   <div>
@@ -357,6 +386,8 @@ export default function ContactoPage() {
                       className="w-full bg-surface-container-low border border-outline-variant/10 text-on-surface p-4 rounded-lg focus:ring-2 focus:ring-secondary/40 focus:border-secondary/40 focus:outline-none transition-all duration-200 placeholder:text-on-surface-variant/40"
                       placeholder="Seu número"
                       type="tel"
+                      value={telefone}
+                      onChange={(e) => setTelefone(e.target.value)}
                     />
                   </div>
                 </div>
@@ -368,6 +399,8 @@ export default function ContactoPage() {
                     className="w-full bg-surface-container-low border border-outline-variant/10 text-on-surface p-4 rounded-lg focus:ring-2 focus:ring-secondary/40 focus:border-secondary/40 focus:outline-none transition-all duration-200 placeholder:text-on-surface-variant/40"
                     placeholder="Seu email"
                     type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                   />
                 </div>
                 <div>
@@ -378,13 +411,22 @@ export default function ContactoPage() {
                     className="w-full bg-surface-container-low border border-outline-variant/10 text-on-surface p-4 rounded-lg focus:ring-2 focus:ring-secondary/40 focus:border-secondary/40 focus:outline-none transition-all duration-200 resize-none placeholder:text-on-surface-variant/40"
                     placeholder="Descreva o que precisa ou envie a sua lista de materiais..."
                     rows={5}
+                    value={mensagem}
+                    onChange={(e) => setMensagem(e.target.value)}
                   />
                 </div>
                 <button
                   type="submit"
-                  className="w-full riveted-btn py-4 text-white font-[var(--font-manrope)] font-bold uppercase tracking-widest text-sm rounded-lg"
+                  className="w-full riveted-btn py-4 text-white font-[var(--font-manrope)] font-bold uppercase tracking-widest text-sm rounded-lg flex items-center justify-center gap-2"
                 >
-                  Enviar Pedido
+                  {enviado ? (
+                    <>
+                      <span className="material-symbols-outlined text-lg">check_circle</span>
+                      Enviado!
+                    </>
+                  ) : (
+                    "Enviar Pedido"
+                  )}
                 </button>
               </form>
             </div>
@@ -399,7 +441,7 @@ export default function ContactoPage() {
         >
           <div className="relative h-[400px] w-full rounded-xl overflow-hidden ghost-border">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12440.36!2d-9.38!3d38.8!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd1ec5c4b4b3b3b3%3A0x0!2sSintra!5e0!3m2!1spt-PT!2spt!4v1"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3113.5!2d-9.3817!3d38.7976!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd1edab2ae1e5c7b%3A0x10f54c41bc4f6402!2sSintra!5e0!3m2!1spt-PT!2spt!4v1"
               width="100%"
               height="100%"
               style={{ border: 0 }}

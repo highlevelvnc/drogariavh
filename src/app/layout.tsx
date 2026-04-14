@@ -18,16 +18,27 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Drogaria VH - Materiais de Construção em Sintra",
+  title: "Drogaria VH — Materiais de Construção em Sintra",
   description:
     "Drogaria VH em Sintra. Ferramentas, tintas, materiais elétricos e tudo para a sua obra. Peça via WhatsApp.",
   keywords: [
-    "drogaria",
-    "materiais construção",
-    "ferramentas",
-    "tintas",
-    "sintra",
+    "drogaria", "materiais construção", "ferramentas", "tintas", "sintra",
+    "lixadeiras", "material elétrico", "canalização",
   ],
+  openGraph: {
+    title: "Drogaria VH — Materiais de Construção em Sintra",
+    description: "Ferramentas, tintas, materiais elétricos e tudo para a sua obra. Peça via WhatsApp.",
+    type: "website",
+    locale: "pt_PT",
+    siteName: "Drogaria VH",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+  icons: {
+    icon: "/favicon.svg",
+  },
 };
 
 export default function RootLayout({

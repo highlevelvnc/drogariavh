@@ -70,7 +70,7 @@ export function Navbar() {
           })}
           <span className="text-on-surface/30">|</span>
           <a
-            href="#"
+            href="/"
             className="animated-underline text-on-surface/50 hover:text-on-surface transition-colors duration-300 text-sm pb-1"
           >
             VH Remodelações &rarr;
